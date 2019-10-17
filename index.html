@@ -7,20 +7,23 @@
   <meta name="theme-color" content="#4F7DC9">
   <meta charset="UTF-8">
   <title>Codelab Flutter Breizh</title>
-  <script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
-  <link rel="import" href="../../elements/codelab.html">
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
-  <style is="custom-style">
-    body {
-      font-family: "Roboto",sans-serif;
-      background: var(--google-codelab-background, #F8F9FA);
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
     }
   </style>
-  
 </head>
-<body unresolved class="fullbleed">
-
-  <google-codelab title="Codelab Flutter Breizh"
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="your-first-flutterapp"
+                  title="Codelab Flutter Breizh"
                   environment="web"
                   feedback-link="">
     
@@ -28,7 +31,7 @@
         <p><a href="https://flutter.io/" target="_blank">Flutter</a> is Google&#39;s mobile SDK for crafting high-quality native interfaces on iOS and Android in record time. Flutter works with existing code, is used by developers and organizations around the world, and is free and open source.</p>
 <aside class="special"><p>Looking for more? Check out the flutter <a href="https://codelabs.developers.google.com/?cat=Flutter" target="_blank">codelabs from google</a> !</p>
 </aside>
-<h2><strong>What you will build</strong></h2>
+<h2 is-upgraded><strong>What you will build</strong></h2>
 <p>In this codelab, you&#39;ll create a simple Flutter app. If you are familiar with object-oriented code and basic programming concepts such as variables, loops, and conditionals, you can complete this codelab. </p>
 <p>You don&#39;t need previous experience with Dart or mobile programming.</p>
 <table>
@@ -38,7 +41,7 @@
 <li>Call Json API</li>
 <li>Add a hero animation !</li>
 </ul>
-<h2 class="checklist"><strong>What you&#39;ll learn</strong></h2>
+<h2 class="checklist" is-upgraded><strong>What you&#39;ll learn</strong></h2>
 <ul>
 <li>How to write a Flutter app that looks natural on both iOS and Android.</li>
 <li>Basic structure of a Flutter app.</li>
@@ -47,7 +50,7 @@
 <li>How to implement stateless and stateful widgets.</li>
 <li>How to create an infinite, lazily loaded list.</li>
 </ul>
-</td><td colspan="1" rowspan="1"><p><img style="max-width: 176.84px" src="img/ae3298c06998eabf.png"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 176.84px" src="img/ae3298c06998eabf.png"></p>
 </td></tr>
 </table>
 
@@ -74,7 +77,7 @@
 <p>In this codelab, you&#39;ll mostly be editing <strong>lib/main.dart</strong>, where the Dart code lives.</p>
 <p>Replace the contents of <code>lib/main.dart</code>.</p>
 <p>Delete all of the code from <strong>lib/main.dart</strong>. Replace with the following code, which displays &#34;Bonjour DevFest du Bout du Monde&#34; in the center of the screen.</p>
-<h3><strong>main.dart</strong></h3>
+<h3 is-upgraded><strong>main.dart</strong></h3>
 <pre><code>import &#39;package:flutter/material.dart&#39;;
 
 void main() =&gt; runApp(BreizhApp());
@@ -103,10 +106,10 @@ class BreizhApp extends StatelessWidget {
 </ul>
 </aside>
 <p><a href="https://flutter.io/get-started/test-drive/#androidstudio" target="_blank">Run the app</a>. You should see either Android or iOS output, depending on your device.</p>
-<p><img style="max-width: 273.56px" src="img/f6195b18e79589ec.png"></p>
+<p class="image-container"><img style="width: 273.56px" src="img/f6195b18e79589ec.png"></p>
 <aside class="special"><p><strong>Tip: </strong>The first time you run on a physical device, it can take awhile to load. After this, you can use hot reload for quick updates. <strong>Save</strong> also performs a hot reload if the app is running.</p>
 </aside>
-<h3><strong>Observations</strong></h3>
+<h3 is-upgraded><strong>Observations</strong></h3>
 <ul>
 <li>This example creates a <a href="https://material.io/design/" target="_blank">Material</a> app. Material is a visual design language that is standard on mobile and the web. Flutter offers a rich set of Material widgets.</li>
 <li>The main method uses fat arrow (=&gt;) notation, Use fat arrow notation for one-line functions or methods.</li>
@@ -130,7 +133,7 @@ class BreizhApp extends StatelessWidget {
 <p>In this file create a new <a href="https://docs.flutter.io/flutter/widgets/StatelessWidget-class.html" target="_blank">StatelessWidget</a> called <code>PlaceListPage</code>. This widget will represent our page (called a <em>route</em> in Flutter) that will display an app bar and a list view.</p>
 <aside class="special"><p><strong>Tip: </strong>You can use the snippet <strong>stless</strong> to easily create a new StatelessWidget in your IDE.</p>
 </aside>
-<h3><strong>place_list.dart</strong></h3>
+<h3 is-upgraded><strong>place_list.dart</strong></h3>
 <pre><code>class PlaceListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -140,7 +143,7 @@ class BreizhApp extends StatelessWidget {
 <p>Change the default widget returned by the <code>build</code> method to a <a href="https://docs.flutter.io/flutter/material/Scaffold-class.html" target="_blank">Scaffold</a>. Add an <a href="https://docs.flutter.io/flutter/material/AppBar-class.html" target="_blank">AppBar</a>, with a <a href="https://docs.flutter.io/flutter/widgets/Text-class.html" target="_blank">Text</a> containing <em>Flutter Breizh</em> as the title, and a new widget called <code>_PlaceList</code> as the body.</p>
 <aside class="special"><p><strong>Tip: </strong>Prefixing an identifier with an underscore enforces privacy in the Dart language.</p>
 </aside>
-<h3><strong>place_list.dart</strong></h3>
+<h3 is-upgraded><strong>place_list.dart</strong></h3>
 <pre><code>class PlaceListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -156,7 +159,7 @@ class BreizhApp extends StatelessWidget {
 <p>This constructor allows us to create a fixed-length scrollable linear array of list &#34;items&#34; separated by list item &#34;separators&#34;.</p>
 <p>For the <code>separatorBuilder</code> return a <a href="https://docs.flutter.io/flutter/material/Divider-class.html" target="_blank">Divider</a> widget.</p>
 <p>For the <code>itemBuilder</code> return a <code>Text</code> containing the index of the item.</p>
-<h3><strong>place_list.dart</strong></h3>
+<h3 is-upgraded><strong>place_list.dart</strong></h3>
 <pre><code>class _PlaceList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -169,13 +172,13 @@ class BreizhApp extends StatelessWidget {
 }</code></pre>
 <p>In order to change our app, we need to change the <strong>main.dart</strong> file.</p>
 <p>Add the following import after the first one:</p>
-<h3><strong>main.dart</strong></h3>
+<h3 is-upgraded><strong>main.dart</strong></h3>
 <pre><code>import &#39;package:flutter_breizh/place_list.dart&#39;;</code></pre>
 <p>Replace the body of the MaterialApp in the BreizhApp widget with PlaceListPage:</p>
-<h3><strong>main.dart</strong></h3>
+<h3 is-upgraded><strong>main.dart</strong></h3>
 <pre><code>home: PlaceListPage(),</code></pre>
 <p>If you save your work, you should see something like this:</p>
-<p><img style="max-width: 273.61px" src="img/e9dbd6eb47543fef.png"></p>
+<p class="image-container"><img style="width: 273.61px" src="img/e9dbd6eb47543fef.png"></p>
 <aside class="special"><p><strong>Lost ?</strong></p>
 <p><a href="https://github.com/ptibulle/flutter_breizh/tree/master/step_04/flutter_breizh" target="_blank">https://github.com/ptibulle/flutter_breizh/tree/master/step_04/flutter_breizh</a></p>
 </aside>
@@ -186,7 +189,7 @@ class BreizhApp extends StatelessWidget {
       <google-codelab-step label="Add a Material ListTile" duration="4">
         <p>In this step you&#39;ll create a <a href="https://material.io/design/components/lists.html#specs" target="_blank">Material list tile</a>. The <code>ListView</code> can take any widget for items but the <a href="https://docs.flutter.io/flutter/material/ListTile-class.html" target="_blank">ListTile</a> widgets offer a simple way to create Material themed list items.</p>
 <p>Our tile will look this this:</p>
-<p><img style="max-width: 634.51px" src="img/4483ded4deee8e99.png"></p>
+<p class="image-container"><img style="width: 634.51px" src="img/4483ded4deee8e99.png"></p>
 <p>In place_list.dart, add a new <code>StatelessWidget</code> called <code>_PlaceTile</code>. The <code>build</code> method will return a <code>ListTile</code> where the <code>title</code> will be a <code>Text</code> containing %Title% and the <code>subtitle</code> will be a <code>Text</code> containing %City%.</p>
 <p>The widget at the left of this tile will be a <a href="https://docs.flutter.io/flutter/widgets/Placeholder-class.html" target="_blank">Placeholder</a> with an explicit size of 100x56.</p>
 <aside class="special"><p><strong>Tip: </strong>Place a widget in a <a href="https://docs.flutter.io/flutter/widgets/SizedBox-class.html" target="_blank">SizedBox</a> to give it an explicit size.</p>
@@ -196,9 +199,9 @@ class BreizhApp extends StatelessWidget {
 <li>VSCode: <strong>Ctrl</strong>+<strong>.</strong> (<strong>Cmd</strong>+<strong>.</strong> on Mac)</li>
 <li>IntelliJ: <strong>Alt</strong>+<strong>Enter</strong></li>
 </ul>
-<p><img style="max-width: 610.00px" src="img/92cb3ba1c1503034.png"></p>
+<p class="image-container"><img style="width: 610.00px" src="img/92cb3ba1c1503034.png"></p>
 </aside>
-<h3><strong>place_list.dart</strong></h3>
+<h3 is-upgraded><strong>place_list.dart</strong></h3>
 <pre><code>class _PlaceTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -214,7 +217,7 @@ class BreizhApp extends StatelessWidget {
   }
 }</code></pre>
 <p>If you save your work, you should see something like this:</p>
-<p><img style="max-width: 185.10px" src="img/39945dd87ab5105e.png"></p>
+<p class="image-container"><img style="width: 185.10px" src="img/39945dd87ab5105e.png"></p>
 <aside class="special"><p><strong>Lost ?</strong></p>
 <p><a href="https://github.com/ptibulle/flutter_breizh/tree/master/step_05/flutter_breizh" target="_blank">https://github.com/ptibulle/flutter_breizh/tree/master/step_05/flutter_breizh</a></p>
 </aside>
@@ -230,7 +233,7 @@ class BreizhApp extends StatelessWidget {
 <p><a href="https://raw.githubusercontent.com/ptibulle/flutter_breizh/master/step_06/flutter_breizh/assets/places.json" target="_blank">https://raw.githubusercontent.com/ptibulle/flutter_breizh/master/step_06/flutter_breizh/assets/places.json</a></p>
 <p>To be able to read it from our app, we need to add a reference to this asset in the pubspec.yaml file.</p>
 <p>Add it into under the assets section:</p>
-<h3><strong>pubspec.yaml</strong></h3>
+<h3 is-upgraded><strong>pubspec.yaml</strong></h3>
 <pre><code>  assets:
     - assets/places.json</code></pre>
 <aside class="special"><p><strong>Tip: </strong>The suggested syntax for YAML files is to use 2 spaces for indentation.</p>
@@ -260,7 +263,7 @@ class BreizhApp extends StatelessWidget {
 </aside>
 <p>For this codelab, we used quicktype.io to generate the code which we modified a little to simplify it and to fit our needs. </p>
 <p>Copy/Paste the following code to a new file into <strong>lib/data/place.dart</strong>:</p>
-<h3><strong>place.dart</strong></h3>
+<h3 is-upgraded><strong>place.dart</strong></h3>
 <pre><code>import &#39;dart:convert&#39;;
 
 List&lt;Place&gt; placesFromJson(String str) {
@@ -313,9 +316,9 @@ class Place {
 }</code></pre>
 <p>In this class we have two top level functions, that can help us to convert a JSON object place to a Dart object place and the same for a collection of places.</p>
 <p>Now we will modify our app to read this data and display it.</p>
-<h2><strong>Read the json file</strong></h2>
+<h2 is-upgraded><strong>Read the json file</strong></h2>
 <p>The first thing to do is to add a <strong>top level function</strong> called <code>getPlaces</code> in <code>place_list.dart</code>:</p>
-<h3><strong>place_list.dart</strong></h3>
+<h3 is-upgraded><strong>place_list.dart</strong></h3>
 <pre><code>/// Gets a list of places from data-tourisme API.
 Future&lt;List&lt;Place&gt;&gt; getPlaces() async {
   String json;
@@ -323,7 +326,7 @@ Future&lt;List&lt;Place&gt;&gt; getPlaces() async {
   return placesFromJson(json);
 }</code></pre>
 <p>You will need to add the following imports:</p>
-<h3><strong>place_list.dart</strong></h3>
+<h3 is-upgraded><strong>place_list.dart</strong></h3>
 <pre><code>import &#39;package:flutter/services.dart&#39; show rootBundle;
 import &#39;package:flutter_breizh/data/place.dart&#39;;</code></pre>
 <aside class="special"><p><strong>Tip: </strong>You can also use your IDE to quickly add the necessary imports.</p>
@@ -331,9 +334,9 @@ import &#39;package:flutter_breizh/data/place.dart&#39;;</code></pre>
 <aside class="special"><p><strong>Tip: </strong>We can import only a part of a module with the keyword <code>show</code>.</p>
 </aside>
 <p>The <code>rootBundle.loadString</code> will asynchronously read the asset file we previously created.</p>
-<h2><strong>Handle a Place data in the PlaceTile</strong></h2>
+<h2 is-upgraded><strong>Handle a Place data in the PlaceTile</strong></h2>
 <p>Add a final variable of type <code>Place</code> called place in the <code>_PlaceTile</code> widget and use it in the <code>build</code> method.</p>
-<h3><strong>place_list.dart</strong></h3>
+<h3 is-upgraded><strong>place_list.dart</strong></h3>
 <pre><code>class _PlaceTile extends StatelessWidget {
   _PlaceTile({
     Key key,
@@ -354,9 +357,9 @@ import &#39;package:flutter_breizh/data/place.dart&#39;;</code></pre>
     );
   }
 }</code></pre>
-<h2><strong>Handle a list of Places data in the PlaceList</strong></h2>
+<h2 is-upgraded><strong>Handle a list of Places data in the PlaceList</strong></h2>
 <p>Add a final variable of type <code>List&lt;Place&gt;</code> called places in the <code>_PlaceList</code> widget and change the <code>build</code> method to in order to use this list:</p>
-<h3><strong>place_list.dart</strong></h3>
+<h3 is-upgraded><strong>place_list.dart</strong></h3>
 <pre><code>class _PlaceList extends StatelessWidget {
   _PlaceList({
     Key key,
@@ -376,10 +379,10 @@ import &#39;package:flutter_breizh/data/place.dart&#39;;</code></pre>
     );
   }
 }</code></pre>
-<h2><strong>Build the List with a progress indicator while accessing data</strong></h2>
+<h2 is-upgraded><strong>Build the List with a progress indicator while accessing data</strong></h2>
 <p>Change the <code>body</code> of the <code>Scaffold</code> returned by the <code>PlaceListPage</code> so that it will use a <a href="https://docs.flutter.io/flutter/widgets/FutureBuilder-class.html" target="_blank">FutureBuilder</a> widget.</p>
 <p>A <code>FutureBuilder</code> is able to build itself based on the latest snapshot of interaction with a <a href="https://docs.flutter.io/flutter/dart-async/Future-class.html" target="_blank">Future</a>.</p>
-<h3><strong>place_list.dart</strong></h3>
+<h3 is-upgraded><strong>place_list.dart</strong></h3>
 <pre><code>class PlaceListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -418,7 +421,7 @@ import &#39;package:flutter_breizh/data/place.dart&#39;;</code></pre>
 </aside>
 <p>In the builder of the <code>FutureBuilder</code> we check if there are data, if not we show a progress indicator, then we check if there was an error, if so, we display a <code>Text</code> containing our error message. Finally if there are data and no error, we show the <code>_PlaceList</code> widget as before.</p>
 <p>If you save the file you will notice that the <code>title</code> and <code>subtitle</code> are correctly set from the different places, but since we didn&#39;t change the <code>Placeholder</code> we don&#39;t have an image yet. Let&#39;s change this in the next step.</p>
-<p><img style="max-width: 273.61px" src="img/f299a68f1e7971d8.png"></p>
+<p class="image-container"><img style="width: 273.61px" src="img/f299a68f1e7971d8.png"></p>
 <aside class="special"><p><strong>Lost ?</strong></p>
 <p><a href="https://github.com/ptibulle/flutter_breizh/tree/master/step_07/flutter_breizh" target="_blank">https://github.com/ptibulle/flutter_breizh/tree/master/step_07/flutter_breizh</a></p>
 </aside>
@@ -429,7 +432,7 @@ import &#39;package:flutter_breizh/data/place.dart&#39;;</code></pre>
       <google-codelab-step label="Use an external package" duration="5">
         <p>In this step, you&#39;ll start using an open-source package named  <strong>cached_network_image</strong>, which is a Flutter library to show images from the internet and keep them in the cache directory.<br><br>You can find the <strong>cached_network_image</strong> package, as well as many other open source packages, on <a href="https://pub.dartlang.org/" target="_blank">pub.dartlang.org</a>.</p>
 <p>The pubspec file also manages the packages for a Flutter app. In <strong>pubspec.yaml,</strong> append <code>cached_network_image: ^0.8.0</code> (<strong>cached_network_image</strong> 0.8.0 or higher) to the dependencies list:</p>
-<h3><strong>pubspec.yaml</strong></h3>
+<h3 is-upgraded><strong>pubspec.yaml</strong></h3>
 <pre><code>dependencies:
   flutter:
     sdk: flutter
@@ -437,10 +440,10 @@ import &#39;package:flutter_breizh/data/place.dart&#39;;</code></pre>
   cupertino_icons: ^0.1.2
   cached_network_image: ^0.8.0</code></pre>
 <p>In <strong>place_list.dart </strong>import the new package:</p>
-<h3><strong>place_list.dart</strong></h3>
+<h3 is-upgraded><strong>place_list.dart</strong></h3>
 <pre><code>import &#39;package:cached_network_image/cached_network_image.dart&#39;;</code></pre>
 <p>Now we can display the first picture of the place by modifying the <code>child</code> of the <code>SizedBox</code> used in the <code>_PlaceTile</code> widget.</p>
-<h3><strong>place_list.dart</strong></h3>
+<h3 is-upgraded><strong>place_list.dart</strong></h3>
 <pre><code>child: CachedNetworkImage(
           placeholder: (context, url) =&gt; Container(
             color: Colors.black12,
@@ -449,7 +452,7 @@ import &#39;package:flutter_breizh/data/place.dart&#39;;</code></pre>
           fit: BoxFit.cover,
         ),</code></pre>
 <p>Now you should see the images:</p>
-<p><img style="max-width: 273.61px" src="img/9037e1c3ca53c5b.png"></p>
+<p class="image-container"><img style="width: 273.61px" src="img/9037e1c3ca53c5b.png"></p>
 <aside class="special"><p><strong>Lost ?</strong></p>
 <p><a href="https://github.com/ptibulle/flutter_breizh/tree/master/step_08/flutter_breizh" target="_blank">https://github.com/ptibulle/flutter_breizh/tree/master/step_08/flutter_breizh</a></p>
 </aside>
@@ -461,11 +464,11 @@ import &#39;package:flutter_breizh/data/place.dart&#39;;</code></pre>
         <p>In this step you will learn how to fetch real data from a REST API.</p>
 <p>We will use the http package to get real data from the OpenData Tourisme Bretagne API and the convert package to decode utf8 format.</p>
 <p>Add the following imports in order to use these packages :</p>
-<h3><strong>place_list.dart</strong></h3>
+<h3 is-upgraded><strong>place_list.dart</strong></h3>
 <pre><code>import &#39;package:http/http.dart&#39; as http;
 import &#39;dart:convert&#39;;</code></pre>
 <p>Then change the <code>getPlaces</code> method to get real data from this url: <a href="http://www.data-tourisme-bretagne.com/dataserver/tourismebretagne/data/patnaturelBREfr?%5C$format=json&%5C$top=1000" target="_blank">http://www.data-tourisme-bretagne.com/dataserver/tourismebretagne/data/patnaturelBREfr?\$format=json&amp;\$top=1000</a> (no longer available, you can use these mocked url instead : <a href="https://api.myjson.com/bins/ybkmk" target="_blank">https://api.myjson.com/bins/ybkmk</a> ) and to fallback to the file asset data when there is an error.</p>
-<h3><strong>place_list.dart</strong></h3>
+<h3 is-upgraded><strong>place_list.dart</strong></h3>
 <pre><code>Future&lt;List&lt;Place&gt;&gt; getPlaces() async {
   String json;
   final response = await http.get(
@@ -489,9 +492,9 @@ import &#39;dart:convert&#39;;</code></pre>
 <p>We&#39;ll need to transform the <code>_PlaceTile</code> widget into a <a href="https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html" target="_blank">StatefulWidget</a>.</p>
 <p>A <code>StatefulWidget</code> is a widget that has a mutable state.</p>
 <aside class="special"><p><strong>Tip: </strong>You can easily transform a <code>StatelessWidget</code> into a <code>StatefulWidget</code> with your IDE. For doing this, click on the <code>StatelessWidget</code>, then you should have a quick action available (light bulb) on VSCode. Use &#34;Option + Enter&#34; on Android Studio. Click on it, or hit the shortcut keys to show the menu and convert your widget.</p>
-<p><img style="max-width: 610.00px" src="img/c9e0aacb2594942a.png"></p>
+<p class="image-container"><img style="width: 610.00px" src="img/c9e0aacb2594942a.png"></p>
 </aside>
-<h3><strong>place_list.dart</strong></h3>
+<h3 is-upgraded><strong>place_list.dart</strong></h3>
 <pre><code>class _PlaceTile extends StatefulWidget {
  _PlaceTile({
    Key key,
@@ -527,10 +530,10 @@ class _PlaceTileState extends State&lt;_PlaceTile&gt; {
 }</code></pre>
 <p>You widget is divided in two parts, the <code>StatefulWidget</code> and a <code>State&lt;_PlaceTile&gt;</code>.</p>
 <p>Add a <code>isFavorite</code> boolean property initialized to false in the State.</p>
-<h3><strong>place_list.dart</strong></h3>
+<h3 is-upgraded><strong>place_list.dart</strong></h3>
 <pre><code>bool isFavorite = false;</code></pre>
 <p>Then add a IconButton as the trailing property of the ListTile. The icon should be a favorite icon when isFavorite is true and favorite_border when isFavorite is false. When the icon has been tapped, the function calls <code>setState()</code> to notify the framework that state has changed, and toggle the value of isFavorite.</p>
-<h3><strong>place_list.dart</strong></h3>
+<h3 is-upgraded><strong>place_list.dart</strong></h3>
 <pre><code>trailing: IconButton(
   icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border),
   onPressed: () {
@@ -544,7 +547,7 @@ class _PlaceTileState extends State&lt;_PlaceTile&gt; {
 <p>Hot reload the app. You should be able to tap any icon to favorite, or unfavorite, the entry. Tapping a heart icon generates an implicit ink splash animation emanating from the tap point.</p>
 <aside class="special"><p><strong>To go further : </strong>In this example, the state is fixed on the Tile. If the Tile disappears and reappears, it is not the same Tile Object so his state is renewed. Can you imagine a way to conserve this state ?</p>
 </aside>
-<p><img style="max-width: 273.61px" src="img/726f03a1ecb37df1.png"></p>
+<p class="image-container"><img style="width: 273.61px" src="img/726f03a1ecb37df1.png"></p>
 <aside class="special"><p><strong>Lost ?</strong></p>
 <p><a href="https://github.com/ptibulle/flutter_breizh/tree/master/step_10/flutter_breizh" target="_blank">https://github.com/ptibulle/flutter_breizh/tree/master/step_10/flutter_breizh</a></p>
 </aside>
@@ -556,7 +559,7 @@ class _PlaceTileState extends State&lt;_PlaceTile&gt; {
         <p>In this step, you&#39;ll add a new page (called a <em>route</em> in Flutter) that displays the details of a place. You&#39;ll learn how to navigate between the home route and the new route.<br><br>In Flutter, the Navigator manages a stack containing the app&#39;s routes. Pushing a route onto the Navigator&#39;s stack, updates the display to that route. Popping a route from the Navigator&#39;s stack, returns the display to the previous route.</p>
 <p>Create the new file<strong> lib/place_detail.dart</strong>.</p>
 <p>In this file create a new simple Stateless widget called <code>PlaceDetailPage</code>. </p>
-<h3><strong>place_detail.dart</strong></h3>
+<h3 is-upgraded><strong>place_detail.dart</strong></h3>
 <pre><code>import &#39;package:flutter/material.dart&#39;;
 import &#39;package:flutter_breizh/data/place.dart&#39;;
 
@@ -576,7 +579,7 @@ class PlaceDetailPage extends StatelessWidget {
   }
 }</code></pre>
 <p>Now modify the <code>_PlaceTile</code> widget by setting the <code>onTap</code> parameter of the <code>ListTile</code>:</p>
-<h3><strong>place_list.dart</strong></h3>
+<h3 is-upgraded><strong>place_list.dart</strong></h3>
 <pre><code>onTap: () =&gt; Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) =&gt; PlaceDetailPage(
@@ -585,12 +588,12 @@ class PlaceDetailPage extends StatelessWidget {
             ),
           ),</code></pre>
 <p>You will also have to add the import to the module containing <code>PlaceDetailPage</code>.</p>
-<h3><strong>place_list.dart</strong></h3>
+<h3 is-upgraded><strong>place_list.dart</strong></h3>
 <pre><code>import &#39;package:flutter_breizh/place_detail.dart&#39;;</code></pre>
 <p>Now, if you tap on a tile, the app will navigate to this new page.<br></p>
-<p><img style="max-width: 273.61px" src="img/4c2f5e66bddd2999.png"></p>
+<p class="image-container"><img style="width: 273.61px" src="img/4c2f5e66bddd2999.png"></p>
 <p>Now add a title, pictures and description in the detail.</p>
-<h3><strong>place_detail.dart</strong></h3>
+<h3 is-upgraded><strong>place_detail.dart</strong></h3>
 <pre><code>import &#39;package:cached_network_image/cached_network_image.dart&#39;;
 
  ...
@@ -653,8 +656,8 @@ class PlaceDetailPage extends StatelessWidget {
         <p>In this section you will learn how to create <a href="https://docs.flutter.io/flutter/widgets/Hero-class.html" target="_blank">Hero</a> animations between two pages of your app.</p>
 <p>If you want to create beautiful transitions between pages with common widgets, you can use the Hero widget. This widget will move widgets with the same id from one route to another.</p>
 <p>We will add Hero animations for four widgets, the image in the list item to the image in the sliver app bar and the title in the list item to the title in the sliver app bar. </p>
-<h2><strong>The image</strong></h2>
-<h3><strong>place_list.dart</strong></h3>
+<h2 is-upgraded><strong>The image</strong></h2>
+<h3 is-upgraded><strong>place_list.dart</strong></h3>
 <pre><code>leading: SizedBox(
   width: 100,
   height: 56,
@@ -669,7 +672,7 @@ class PlaceDetailPage extends StatelessWidget {
     ),
   ),
 ),</code></pre>
-<h3><strong>place_detail.dart</strong></h3>
+<h3 is-upgraded><strong>place_detail.dart</strong></h3>
 <pre><code>                if (i == 0) { // Image Principale
                   return Hero(
                     tag: &#39;image_${place.numid}&#39;,
@@ -681,8 +684,8 @@ class PlaceDetailPage extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                   );</code></pre>
-<h2><strong>The title</strong></h2>
-<h3><strong>place_list.dart</strong></h3>
+<h2 is-upgraded><strong>The title</strong></h2>
+<h3 is-upgraded><strong>place_list.dart</strong></h3>
 <pre><code>title: Hero(
   tag: &#39;title_${widget.place.numid}&#39;,
   child: Text(
@@ -690,7 +693,7 @@ class PlaceDetailPage extends StatelessWidget {
     style: Theme.of(context).textTheme.subhead,
   ),
 ),</code></pre>
-<h3><strong>place_detail.dart</strong></h3>
+<h3 is-upgraded><strong>place_detail.dart</strong></h3>
 <pre><code>            title: Hero(
               tag: &#39;title_${place.numid}&#39;,
               child: Text(
@@ -709,10 +712,10 @@ class PlaceDetailPage extends StatelessWidget {
         <p>In this step you will learn how to add slivers to your app.</p>
 <p>A <strong>Sliver</strong> is a slice of a viewport. It&#39;s a special widget that can adapt itself when the user makes a scroll gesture.</p>
 <p>We want to achieve the following design:</p>
-<p><img style="max-width: 273.61px" src="img/b11381ae8a4b6946.png"></p>
+<p class="image-container"><img style="width: 273.61px" src="img/b11381ae8a4b6946.png"></p>
 <p>The first thing to do in order to use multiple slivers, is to create a <a href="https://docs.flutter.io/flutter/widgets/CustomScrollView-class.html" target="_blank">CustomScrollView</a>. We will also add a <a href="https://docs.flutter.io/flutter/material/SliverAppBar-class.html" target="_blank">SliverAppBar</a> which is an <code>AppBar</code> that can be used into a <code>CustomScrollView</code> and can respond to the scroll.</p>
 <p>Let&#39;s remove the previous &#34;boring&#34; code from the scaffold and start to play with the slivers !  </p>
-<h3><strong>place_detail.dart</strong></h3>
+<h3 is-upgraded><strong>place_detail.dart</strong></h3>
 <pre><code>Widget build(BuildContext context) {
   final textTheme = Theme.of(context).textTheme;
 
@@ -734,7 +737,7 @@ class PlaceDetailPage extends StatelessWidget {
 }</code></pre>
 <p>The <code>Theme.of(context).textTheme</code> is used to get the ambient text theme. Then we use its <code>title</code> style for the <code>title</code> of the <code>SliverAppBar</code>.</p>
 <p>For the section items such as Position, Description and Pictures we will create a specific widget <code>_SliverGroupHeader</code>:</p>
-<h3><strong>place_detail.dart</strong></h3>
+<h3 is-upgraded><strong>place_detail.dart</strong></h3>
 <pre><code>class _SliverGroupHeader extends StatelessWidget {
   final String header;
 
@@ -776,7 +779,7 @@ class PlaceDetailPage extends StatelessWidget {
 <p>This group header is composed vertically by a text and a horizontal line. This is why we use a <a href="https://docs.flutter.io/flutter/widgets/Column-class.html" target="_blank">Column</a> widget. The <a href="https://docs.flutter.io/flutter/widgets/Padding-class.html" target="_blank">Padding</a> widget is used to put extra space around a widget.</p>
 <p>We use a  <a href="https://docs.flutter.io/flutter/widgets/SliverToBoxAdapter-class.html" target="_blank">SliverToBoxAdapter</a> here because box widgets such as <code>Padding</code> and <code>Column</code> are not slivers and cannot be a child of the <code>CustomScrollView</code>.</p>
 <p>We will also create another widget to host the box content of the sections:</p>
-<h3><strong>place_detail.dart</strong></h3>
+<h3 is-upgraded><strong>place_detail.dart</strong></h3>
 <pre><code>class _SliverBoxContent extends StatelessWidget {
   final Widget child;
 
@@ -796,9 +799,9 @@ class PlaceDetailPage extends StatelessWidget {
   }
 }</code></pre>
 <p>Each section will have two parts, a group header and a content.</p>
-<h2><strong>Position section</strong></h2>
+<h2 is-upgraded><strong>Position section</strong></h2>
 <p>For the content, we will also use a <code>Column</code> to create the layout. The first line will be the address of the place, followed by the latitude and the last line will be the longitude.</p>
-<h3><strong>place_detail.dart</strong></h3>
+<h3 is-upgraded><strong>place_detail.dart</strong></h3>
 <pre><code>slivers: &lt;Widget&gt;[
   SliverAppBar(...),
   _SliverGroupHeader(header: &#39;Position&#39;),
@@ -821,9 +824,9 @@ class PlaceDetailPage extends StatelessWidget {
       ],
     ),
   ),</code></pre>
-<h2><strong>Description section</strong></h2>
+<h2 is-upgraded><strong>Description section</strong></h2>
 <p>For this section, the content is a simple <code>Text</code> containing the description of the place.</p>
-<h3><strong>place_detail.dart</strong></h3>
+<h3 is-upgraded><strong>place_detail.dart</strong></h3>
 <pre><code>_SliverGroupHeader(header: &#39;Description&#39;),
 _SliverBoxContent(
   child: Text(
@@ -831,11 +834,11 @@ _SliverBoxContent(
     style: textTheme.subhead,
   ),
 ),</code></pre>
-<h2><strong>Photo section</strong></h2>
+<h2 is-upgraded><strong>Photo section</strong></h2>
 <p>For the content we will directly use slivers.</p>
 <p>A <a href="https://docs.flutter.io/flutter/widgets/SliverPadding-class.html" target="_blank">SliverPadding</a> which is the sliver version of the <code>Padding</code> widget for padding the grid.</p>
 <p>A <a href="https://docs.flutter.io/flutter/widgets/SliverGrid-class.html" target="_blank">SliverGrid</a> which is a sliver used to arrange items into a grid layout.</p>
-<h3><strong>place_detail.dart</strong></h3>
+<h3 is-upgraded><strong>place_detail.dart</strong></h3>
 <pre><code>_SliverGroupHeader(header: &#39;Photos&#39;),
 SliverPadding(
   padding: EdgeInsets.only(
@@ -869,7 +872,7 @@ SliverPadding(
       <google-codelab-step label="Play with SliverAppBar" duration="10">
         <p>In this step you will learn how to customize the <code>SliverAppBar</code> in order to improve the design of you apps.</p>
 <p>The <code>SliverAppBar</code> can be pinned at the top and change its size when the user scrolls. To do that we will have to set the <code>pinned</code> and <code>expandedHeight</code> parameters.</p>
-<h3><strong>place_detail.dart</strong></h3>
+<h3 is-upgraded><strong>place_detail.dart</strong></h3>
 <pre><code>SliverAppBar(
   title: Hero(
     tag: &#39;title_${place.numid}&#39;,
@@ -881,10 +884,10 @@ SliverPadding(
   pinned: true,
   expandedHeight: 256,
 ),</code></pre>
-<p><img style="max-width: 273.61px" src="img/9c0ef977e55e83b9.png"></p>
+<p class="image-container"><img style="width: 273.61px" src="img/9c0ef977e55e83b9.png"></p>
 <p>It would be better with an image in the app bar, no? Let&#39;s do this!</p>
 <p>Just add a <a href="https://docs.flutter.io/flutter/material/FlexibleSpaceBar-class.html" target="_blank">FlexibleSpaceBar</a> in the SliverAppBar widget to manage the background of this app bar :</p>
-<h3><strong>place_detail.dart</strong></h3>
+<h3 is-upgraded><strong>place_detail.dart</strong></h3>
 <pre><code>pinned: true,
 expandedHeight: 256,
 flexibleSpace: FlexibleSpaceBar(
@@ -917,7 +920,7 @@ flexibleSpace: FlexibleSpaceBar(
 ),</code></pre>
 <p>Sometimes the description is not long and we don&#39;t have to scroll, moreover it would be great to have an image of the place&#39;s position.</p>
 <p>To do this, let&#39;s add these two widgets in the end of the Position section.</p>
-<h3><strong>place_detail.dart</strong></h3>
+<h3 is-upgraded><strong>place_detail.dart</strong></h3>
 <pre><code>SizedBox(
   height: 8,
 ),
@@ -932,7 +935,7 @@ AspectRatio(
     fit: BoxFit.cover,
   ),
 ),</code></pre>
-<p><img style="max-width: 273.61px" src="img/cdf901da744feeb7.png"></p>
+<p class="image-container"><img style="width: 273.61px" src="img/cdf901da744feeb7.png"></p>
 <aside class="special"><p><strong>Lost ?</strong></p>
 <p><a href="https://github.com/ptibulle/flutter_breizh/tree/master/step_14/flutter_breizh" target="_blank">https://github.com/ptibulle/flutter_breizh/tree/master/step_14/flutter_breizh</a></p>
 </aside>
@@ -942,33 +945,10 @@ AspectRatio(
     
   </google-codelab>
 
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-49880327-14', 'auto');
-
-    (function() {
-      var gaCodelab = '';
-      if (gaCodelab) {
-        ga('create', gaCodelab, 'auto', {name: 'codelab'});
-      }
-
-      var gaView;
-      var parts = location.search.substring(1).split('&');
-      for (var i = 0; i < parts.length; i++) {
-        var param = parts[i].split('=');
-        if (param[0] === 'viewga') {
-          gaView = param[1];
-          break;
-        }
-      }
-      if (gaView && gaView !== gaCodelab) {
-        ga('create', gaView, 'auto', {name: 'view'});
-      }
-    })();
-  </script>
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
 
 </body>
 </html>
