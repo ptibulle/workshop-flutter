@@ -1,0 +1,25 @@
+{
+  "environment": "web",
+  "source": "1Q02RQf3DaEuHb6vXY4SG7uJSzh0UFIQlThbLb83sVwk",
+  "format": "html",
+  "prefix": "../../",
+  "mainga": "UA-49880327-14",
+  "updated": "2019-05-26T20:44:41Z",
+  "id": "your-first-flutterapp",
+  "duration": 90,
+  "title": "Codelab Flutter Breizh",
+  "author": "Romain Rastel, Horacio Gonzales et Pierre Tibulle",
+  "summary": "In this codelab, you'll build a Flutter App with images, json data, list, detailed page, hero animation, and more !!!",
+  "theme": "mobile",
+  "status": [
+    "draft"
+  ],
+  "category": [
+    "Mobile"
+  ],
+  "tags": [
+    "flutter",
+    "mobile"
+  ],
+  "url": "your-first-flutterapp"
+}
